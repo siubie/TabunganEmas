@@ -10,8 +10,8 @@ import id.putraprima.mygoldtracker.database.GoldAppDb;
 import id.putraprima.mygoldtracker.models.Profile;
 
 public class ProfileRepository {
-    public ProfileDao profileDao;
-    public LiveData<Profile> profileLiveData;
+    private ProfileDao profileDao;
+    private LiveData<Profile> profileLiveData;
 
     public ProfileRepository(Application application){
         GoldAppDb db = GoldAppDb.getDatabase(application);
@@ -19,7 +19,7 @@ public class ProfileRepository {
         profileLiveData = profileDao.getProfile();
     }
 
-    LiveData<Profile> getProfileLiveData(){
+    public LiveData<Profile> getProfileLiveData(){
         return profileLiveData;
     }
 
@@ -32,8 +32,8 @@ public class ProfileRepository {
 
         private ProfileDao profileDao;
 
-        public insertAsyncTask(ProfileDao profileDao) {
-            profileDao = profileDao;
+        public insertAsyncTask(ProfileDao dao) {
+            profileDao = dao;
         }
 
         @Override

@@ -66,4 +66,7 @@ dependencies {
     implementation 'androidx.viewpager2:viewpager2:1.1.0-alpha01'
     //runtime permission
     implementation 'com.karumi:dexter:6.2.2'
+
+    //debug database
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
 }

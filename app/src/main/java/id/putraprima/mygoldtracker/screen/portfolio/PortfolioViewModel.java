@@ -15,7 +15,7 @@ public class PortfolioViewModel extends ViewModel {
     public PortfolioViewModel(Application application){
         super();
         profileRepository = new ProfileRepository(application);
-        profileLiveData = profileRepository.profileLiveData;
+        profileLiveData = profileRepository.getProfileLiveData();
     }
 
     public LiveData<Profile> getProfileLiveData(){
