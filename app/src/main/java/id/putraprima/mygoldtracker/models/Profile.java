@@ -3,13 +3,18 @@ package id.putraprima.mygoldtracker.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "profile")
 public class Profile implements Parcelable {
+
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "profileId")
     private int id;
+
     private String username;
     private String email;
     private String image;
@@ -24,6 +29,7 @@ public class Profile implements Parcelable {
     }
 
     protected Profile(Parcel in) {
+        id = in.readInt();
         username = in.readString();
         email = in.readString();
         image = in.readString();
@@ -31,6 +37,7 @@ public class Profile implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
         dest.writeString(username);
         dest.writeString(email);
         dest.writeString(image);
@@ -52,6 +59,14 @@ public class Profile implements Parcelable {
             return new Profile[size];
         }
     };
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;

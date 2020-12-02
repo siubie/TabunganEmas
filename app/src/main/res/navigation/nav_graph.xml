@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/porfolioFragment"
-        android:name="id.putraprima.mygoldtracker.screen.portolio.PorfolioFragment"
+        android:name="id.putraprima.mygoldtracker.screen.portfolio.PortfolioFragment"
         android:label="fragment_porfolio"
         tools:layout="@layout/fragment_porfolio" >
         <action

@@ -1,4 +1,4 @@
-package id.putraprima.mygoldtracker.screen.portolio;
+package id.putraprima.mygoldtracker.screen.portfolio;
 
 import android.Manifest;
 import android.os.Bundle;
@@ -19,10 +19,10 @@ import com.karumi.dexter.listener.single.PermissionListener;
 
 import id.putraprima.mygoldtracker.R;
 
-public class PorfolioFragment extends Fragment {
+public class PortfolioFragment extends Fragment {
 
 
-    public PorfolioFragment() {
+    public PortfolioFragment() {
         // Required empty public constructor
     }
 

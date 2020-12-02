@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="viewModel"
+            type="id.putraprima.mygoldtracker.screen.portfolio.PortfolioViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".screen.portolio.PorfolioFragment"
+        tools:context=".screen.portfolio.PortfolioFragment"
         android:background="@color/background"
         >
         <ImageView
@@ -39,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="Putra Prima Arhandi"
+            android:text="@{viewModel.profileLiveData.username}"
             app:layout_constraintStart_toEndOf="@+id/imageProfile"
             app:layout_constraintTop_toTopOf="@+id/imageProfile" />
 
@@ -49,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="putraprima@gmail.com"
+            android:text="@{viewModel.profileLiveData.email}"
             app:layout_constraintBottom_toBottomOf="@+id/imageProfile"
             app:layout_constraintStart_toEndOf="@+id/imageProfile"
             app:layout_constraintTop_toBottomOf="@+id/textUsername" />
