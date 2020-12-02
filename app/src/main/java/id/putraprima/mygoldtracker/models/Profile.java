@@ -3,7 +3,13 @@ package id.putraprima.mygoldtracker.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "profile")
 public class Profile implements Parcelable {
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     private String username;
     private String email;
     private String image;
