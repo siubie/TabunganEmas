@@ -3,6 +3,7 @@ package id.putraprima.mygoldtracker.screen.profile;
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import id.putraprima.mygoldtracker.models.Profile;
@@ -11,6 +12,7 @@ import id.putraprima.mygoldtracker.repository.ProfileRepository;
 public class ProfileViewModel extends ViewModel {
 
     private ProfileRepository profileRepository;
+    private MutableLiveData<Profile> profileMutableLiveData = new MutableLiveData<>();
 
     public ProfileViewModel(Application application){
         super();
@@ -21,5 +23,14 @@ public class ProfileViewModel extends ViewModel {
         Profile profile = new Profile(username,email,"");
         profileRepository.deleteAll();
         profileRepository.insert(profile);
+        profileMutableLiveData.setValue(profile);
+    }
+
+    public LiveData<Profile> getProfileLiveData(){
+        return profileMutableLiveData;
+    }
+
+    public void onSaveProfileNavigated(){
+        profileMutableLiveData.setValue(null);
     }
 }
