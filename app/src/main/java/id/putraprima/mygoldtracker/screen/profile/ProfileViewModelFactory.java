@@ -1,4 +1,4 @@
-package id.putraprima.mygoldtracker.screen.portfolio;
+package id.putraprima.mygoldtracker.screen.profile;
 
 import android.app.Application;
 
@@ -6,18 +6,20 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-public class PortfolioViewModelFactory implements ViewModelProvider.Factory {
+import id.putraprima.mygoldtracker.screen.portfolio.PortfolioViewModel;
+
+public class ProfileViewModelFactory implements ViewModelProvider.Factory {
     private Application application;
 
-    public PortfolioViewModelFactory(Application application) {
+    public ProfileViewModelFactory(Application application) {
         this.application = application;
     }
 
     @NonNull
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-        if (modelClass.isAssignableFrom(PortfolioViewModel.class)) {
-            return (T) new PortfolioViewModel(application);
+        if (modelClass.isAssignableFrom(ProfileViewModel.class)) {
+            return (T) new ProfileViewModel(application);
         }
         throw new IllegalArgumentException("Wrong View Model Class");
     }
