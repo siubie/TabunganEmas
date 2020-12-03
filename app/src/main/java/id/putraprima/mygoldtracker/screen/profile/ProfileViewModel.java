@@ -19,6 +19,7 @@ public class ProfileViewModel extends ViewModel {
 
     public void onSaveProfile(String username,String email){
         Profile profile = new Profile(username,email,"");
+        profileRepository.deleteAll();
         profileRepository.insert(profile);
     }
 }

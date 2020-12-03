@@ -19,7 +19,7 @@ public interface ProfileDao {
     @Query("DELETE FROM profile")
     void deleteAll();
 
-    @Query("SELECT * from profile limit 1")
+    @Query("SELECT * from profile order by profileId desc limit 1")
     LiveData<Profile> getProfile();
 
 }

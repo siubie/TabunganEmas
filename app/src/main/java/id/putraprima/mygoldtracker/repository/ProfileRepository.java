@@ -1,9 +1,11 @@
 package id.putraprima.mygoldtracker.repository;
 
 import android.app.Application;
+import android.app.AsyncNotedAppOp;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
+import androidx.loader.content.AsyncTaskLoader;
 
 import id.putraprima.mygoldtracker.dao.ProfileDao;
 import id.putraprima.mygoldtracker.database.GoldAppDb;
@@ -39,6 +41,25 @@ public class ProfileRepository {
         @Override
         protected Void doInBackground(Profile... profiles) {
             profileDao.insert(profiles[0]);
+            return null;
+        }
+    }
+
+    public void deleteAll(){
+        new deleteAllAsyncTask(profileDao).execute();
+    }
+
+    private class deleteAllAsyncTask extends AsyncTask<Void,Void,Void>{
+
+        private ProfileDao profileDao;
+
+        public deleteAllAsyncTask(ProfileDao dao) {
+            profileDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            profileDao.deleteAll();
             return null;
         }
     }
