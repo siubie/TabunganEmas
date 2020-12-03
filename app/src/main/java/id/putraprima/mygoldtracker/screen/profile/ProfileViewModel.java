@@ -16,4 +16,9 @@ public class ProfileViewModel extends ViewModel {
         super();
         profileRepository = new ProfileRepository(application);
     }
+
+    public void onSaveProfile(String username,String email){
+        Profile profile = new Profile(username,email,"");
+        profileRepository.insert(profile);
+    }
 }

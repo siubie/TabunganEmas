@@ -5,6 +5,9 @@
 
     <data>
         <variable
+            name="profile"
+            type="id.putraprima.mygoldtracker.models.Profile" />
+        <variable
             name="viewModel"
             type="id.putraprima.mygoldtracker.screen.profile.ProfileViewModel" />
 
@@ -13,7 +16,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".screen.profile.ProfileFragment">
+        tools:context=".screen.profile.ProfileFragment"
+        android:background="@color/background"
+        >
 
         <ImageView
             android:id="@+id/imgMenu"
@@ -35,12 +40,13 @@
             android:ems="10"
             android:hint="Nama Pengguna"
             android:inputType="textPersonName"
+            android:textColorHint="@color/txtGrey"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imgMenu" />
 
         <EditText
-            android:id="@+id/exAlamatEmail"
+            android:id="@+id/extAlamatEmail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -49,6 +55,7 @@
             android:ems="10"
             android:hint="Alamat Email"
             android:inputType="textEmailAddress"
+            android:textColorHint="@color/txtGrey"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/extNamaPengguna" />
@@ -60,10 +67,11 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
+            android:onClick="@{()->viewModel.onSaveProfile(extNamaPengguna.getText().toString(),extAlamatEmail.getText().toString())}"
             android:text="Update Profile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/exAlamatEmail" />
+            app:layout_constraintTop_toBottomOf="@+id/extAlamatEmail" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
