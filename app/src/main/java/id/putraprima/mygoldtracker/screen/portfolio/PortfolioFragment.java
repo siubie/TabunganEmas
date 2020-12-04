@@ -100,6 +100,13 @@ public class PortfolioFragment extends Fragment {
             }
         });
 
+        viewModel.getProfileLiveData().observe(getViewLifecycleOwner(), new Observer<Profile>() {
+            @Override
+            public void onChanged(Profile profile) {
+                binding.imageProfile.setImageURI(Uri.parse(profile.getImage()));
+            }
+        });
+
     }
 
     @Override
@@ -110,7 +117,11 @@ public class PortfolioFragment extends Fragment {
             try {
                 assert data != null;
                 Uri imageUri = data.getData();
-                binding.imageProfile.setImageURI(imageUri);
+                Profile profile = viewModel.getProfileLiveData().getValue();
+                if(profile!=null){
+                    profile.setImage(imageUri.toString());
+                    viewModel.update(profile);
+                }
             } catch (Exception e) {
                 Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
             }

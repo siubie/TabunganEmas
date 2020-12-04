@@ -25,4 +25,8 @@ public class PortfolioViewModel extends ViewModel {
     public void insert(Profile profile){
         profileRepository.insert(profile);
     }
+
+    public void update(Profile profile){
+        profileRepository.update(profile);
+    }
 }
