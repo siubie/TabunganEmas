@@ -1,8 +1,11 @@
 package id.putraprima.mygoldtracker.dao;
 
+import android.view.View;
+
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -21,5 +24,8 @@ public interface ProfileDao {
 
     @Query("SELECT * from profile order by profileId desc limit 1")
     LiveData<Profile> getProfile();
+
+    @Query("SELECT count(*) as total from profile")
+    LiveData<Integer> countProfile();
 
 }

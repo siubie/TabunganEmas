@@ -12,25 +12,15 @@ import id.putraprima.mygoldtracker.repository.ProfileRepository;
 public class ProfileViewModel extends ViewModel {
 
     private ProfileRepository profileRepository;
-    private MutableLiveData<Profile> profileMutableLiveData = new MutableLiveData<>();
+    private LiveData<Profile> profileLiveData;
 
     public ProfileViewModel(Application application){
         super();
         profileRepository = new ProfileRepository(application);
-    }
-
-    public void onSaveProfile(String username,String email){
-        Profile profile = new Profile(username,email,"");
-        profileRepository.deleteAll();
-        profileRepository.insert(profile);
-        profileMutableLiveData.setValue(profile);
+        profileLiveData = profileRepository.getProfileLiveData();
     }
 
     public LiveData<Profile> getProfileLiveData(){
-        return profileMutableLiveData;
-    }
-
-    public void onSaveProfileNavigated(){
-        profileMutableLiveData.setValue(null);
+        return profileLiveData;
     }
 }

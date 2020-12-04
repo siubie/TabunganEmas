@@ -51,16 +51,5 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewModel.getProfileLiveData().observe(getViewLifecycleOwner(), new Observer<Profile>() {
-            @Override
-            public void onChanged(Profile profile) {
-                if(profile!=null){
-                    NavDirections action = ProfileFragmentDirections.actionProfileFragmentToPorfolioFragment();
-                    Navigation.findNavController(requireView()).navigate(action);
-                    viewModel.onSaveProfileNavigated();
-                }
-            }
-        });
-
     }
 }

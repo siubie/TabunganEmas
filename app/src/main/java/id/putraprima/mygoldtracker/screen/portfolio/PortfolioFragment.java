@@ -86,7 +86,9 @@ public class PortfolioFragment extends Fragment {
         binding.imageEditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavDirections action = PortfolioFragmentDirections.actionPorfolioFragmentToProfileFragment();
+                Profile profile = viewModel.getProfileLiveData().getValue();
+                assert profile != null;
+                NavDirections action = PortfolioFragmentDirections.actionPorfolioFragmentToProfileFragment(profile);
                 Navigation.findNavController(requireView()).navigate(action);
             }
         });
@@ -103,7 +105,9 @@ public class PortfolioFragment extends Fragment {
         viewModel.getProfileLiveData().observe(getViewLifecycleOwner(), new Observer<Profile>() {
             @Override
             public void onChanged(Profile profile) {
-                binding.imageProfile.setImageURI(Uri.parse(profile.getImage()));
+                if(profile!=null){
+                    binding.imageProfile.setImageURI(Uri.parse(profile.getImage()));
+                }
             }
         });
 
