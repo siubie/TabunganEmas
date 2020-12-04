@@ -1,6 +1,9 @@
 package id.putraprima.mygoldtracker.screen.portfolio;
 
 import android.Manifest;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -30,6 +33,8 @@ import java.util.Objects;
 import id.putraprima.mygoldtracker.R;
 import id.putraprima.mygoldtracker.databinding.FragmentPorfolioBinding;
 import id.putraprima.mygoldtracker.models.Profile;
+
+import static android.app.Activity.RESULT_OK;
 
 public class PortfolioFragment extends Fragment {
 
@@ -85,5 +90,30 @@ public class PortfolioFragment extends Fragment {
                 Navigation.findNavController(requireView()).navigate(action);
             }
         });
+
+        binding.imageProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                startActivityForResult(intent, 1);
+            }
+        });
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK )
+        {
+            try {
+                assert data != null;
+                Uri imageUri = data.getData();
+                binding.imageProfile.setImageURI(imageUri);
+            } catch (Exception e) {
+                Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
