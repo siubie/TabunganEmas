@@ -23,4 +23,13 @@ public class ProfileViewModel extends ViewModel {
     public LiveData<Profile> getProfileLiveData(){
         return profileLiveData;
     }
+
+    public void onBtnUpdateClicked(String username,String email){
+        Profile profile = profileLiveData.getValue();
+        assert profile != null;
+        profile.setUsername(username);
+        profile.setEmail(email);
+        profileRepository.update(profile);
+    }
+
 }
