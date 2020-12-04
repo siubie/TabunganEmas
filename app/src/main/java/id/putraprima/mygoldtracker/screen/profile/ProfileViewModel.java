@@ -13,6 +13,7 @@ public class ProfileViewModel extends ViewModel {
 
     private ProfileRepository profileRepository;
     private LiveData<Profile> profileLiveData;
+    private MutableLiveData<Profile> profileMutableLiveData = new MutableLiveData<>();
 
     public ProfileViewModel(Application application){
         super();
@@ -30,6 +31,15 @@ public class ProfileViewModel extends ViewModel {
         profile.setUsername(username);
         profile.setEmail(email);
         profileRepository.update(profile);
+        profileMutableLiveData.setValue(profile);
+    }
+
+    public void onProfileUpdated(){
+        profileMutableLiveData.setValue(null);
+    }
+
+    public LiveData<Profile> profileLiveData(){
+        return profileMutableLiveData;
     }
 
 }
