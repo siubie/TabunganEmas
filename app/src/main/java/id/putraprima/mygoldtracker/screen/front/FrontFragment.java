@@ -116,10 +116,9 @@ public class FrontFragment extends Fragment {
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
 
                 switch (position){
-                    case 0:{
+                    case 0:
                         tab.setText("Portfolio");
                         break;
-                    }
                     case 1:
                         tab.setText("Harga");
                         break;
