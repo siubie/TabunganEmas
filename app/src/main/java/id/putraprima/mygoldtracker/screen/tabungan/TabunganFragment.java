@@ -1,4 +1,4 @@
-package id.putraprima.mygoldtracker.screen.portfolio;
+package id.putraprima.mygoldtracker.screen.tabungan;
 
 import android.os.Bundle;
 
@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 
 import id.putraprima.mygoldtracker.R;
 
-public class PortfolioFragment extends Fragment {
+public class TabunganFragment extends Fragment {
 
-    public PortfolioFragment() {
+    public TabunganFragment() {
         // Required empty public constructor
     }
 
@@ -25,6 +25,6 @@ public class PortfolioFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_porfolio, container, false);
+        return inflater.inflate(R.layout.fragment_tabungan, container, false);
     }
 }

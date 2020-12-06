@@ -18,9 +18,6 @@ import android.view.ViewGroup;
 import id.putraprima.mygoldtracker.R;
 import id.putraprima.mygoldtracker.databinding.FragmentProfileBinding;
 import id.putraprima.mygoldtracker.models.Profile;
-import id.putraprima.mygoldtracker.screen.portfolio.PortfolioFragmentDirections;
-import id.putraprima.mygoldtracker.screen.portfolio.PortfolioViewModel;
-import id.putraprima.mygoldtracker.screen.portfolio.PortfolioViewModelFactory;
 
 public class ProfileFragment extends Fragment {
 
@@ -55,7 +52,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onChanged(Profile profile) {
                 if(profile!=null){
-                    NavDirections action = ProfileFragmentDirections.actionProfileFragmentToPorfolioFragment();
+                    NavDirections action = ProfileFragmentDirections.actionProfileFragmentToFrontFragment();
                     Navigation.findNavController(requireView()).navigate(action);
                 }
             }

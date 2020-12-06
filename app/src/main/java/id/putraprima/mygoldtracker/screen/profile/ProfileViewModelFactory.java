@@ -6,8 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import id.putraprima.mygoldtracker.screen.portfolio.PortfolioViewModel;
-
 public class ProfileViewModelFactory implements ViewModelProvider.Factory {
     private Application application;
 

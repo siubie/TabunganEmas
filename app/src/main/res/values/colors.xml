@@ -15,5 +15,6 @@
     <color name="txtGrey">#C5CCD6</color>
     <color name="txtBlack">#141D2C</color>
     <color name="txtGreen">#17B978</color>
+    <color name="separator">#E1E3E8</color>
 
 </resources>

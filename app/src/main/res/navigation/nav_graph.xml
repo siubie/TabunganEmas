@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/porfolioFragment">
+    app:startDestination="@id/frontFragment">
 
     <fragment
-        android:id="@+id/porfolioFragment"
-        android:name="id.putraprima.mygoldtracker.screen.portfolio.PortfolioFragment"
-        android:label="fragment_porfolio"
-        tools:layout="@layout/fragment_porfolio" >
+        android:id="@+id/frontFragment"
+        android:name="id.putraprima.mygoldtracker.screen.front.FrontFragment"
+        android:label="fragment_front"
+        tools:layout="@layout/fragment_front">
         <action
-            android:id="@+id/action_porfolioFragment_to_profileFragment"
+            android:id="@+id/action_frontFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
     <fragment
@@ -20,8 +20,8 @@
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
-            android:id="@+id/action_profileFragment_to_porfolioFragment"
-            app:destination="@id/porfolioFragment" />
+            android:id="@+id/action_profileFragment_to_frontFragment"
+            app:destination="@id/frontFragment" />
         <argument
             android:name="profile"
             app:argType="id.putraprima.mygoldtracker.models.Profile" />
