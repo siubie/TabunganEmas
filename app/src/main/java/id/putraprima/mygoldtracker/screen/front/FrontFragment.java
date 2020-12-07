@@ -117,13 +117,13 @@ public class FrontFragment extends Fragment {
 
                 switch (position){
                     case 0:
-                        tab.setText("Portfolio");
+                        tab.setText("Dompet");
                         break;
                     case 1:
                         tab.setText("Harga");
                         break;
                     case 2:
-                        tab.setText("Tabungan");
+                        tab.setText("Pembelian");
                         break;
                 }
             }
