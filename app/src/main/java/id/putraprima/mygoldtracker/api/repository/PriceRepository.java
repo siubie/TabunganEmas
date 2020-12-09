@@ -30,7 +30,6 @@ public class PriceRepository {
     }
 
     public MutableLiveData<Envelope<Price>> getPrice(){
-        Log.e("SOKOl","MASUK Repository");
         Call<Envelope<Price>> priceData = this.apiInterface.getPrice();
         priceData.enqueue(new Callback<Envelope<Price>>() {
             @Override

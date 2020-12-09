@@ -27,8 +27,6 @@ public class ProfileRepository {
         new insertAsyncTask(profileDao).execute(profile);
     }
 
-
-
     private class insertAsyncTask extends AsyncTask<Profile,Void,Void> {
 
         private ProfileDao profileDao;
