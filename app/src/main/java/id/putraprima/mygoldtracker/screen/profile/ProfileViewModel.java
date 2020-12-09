@@ -6,8 +6,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import id.putraprima.mygoldtracker.models.Profile;
-import id.putraprima.mygoldtracker.repository.ProfileRepository;
+import id.putraprima.mygoldtracker.db.models.Profile;
+import id.putraprima.mygoldtracker.db.repository.ProfileRepository;
 
 public class ProfileViewModel extends ViewModel {
 

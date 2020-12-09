@@ -6,7 +6,7 @@
     <data>
         <variable
             name="profile"
-            type="id.putraprima.mygoldtracker.models.Profile" />
+            type="id.putraprima.mygoldtracker.db.models.Profile" />
         <variable
             name="viewModel"
             type="id.putraprima.mygoldtracker.screen.profile.ProfileViewModel" />

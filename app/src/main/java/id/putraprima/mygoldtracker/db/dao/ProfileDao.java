@@ -1,15 +1,12 @@
-package id.putraprima.mygoldtracker.dao;
-
-import android.view.View;
+package id.putraprima.mygoldtracker.db.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
-import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import id.putraprima.mygoldtracker.models.Profile;
+import id.putraprima.mygoldtracker.db.models.Profile;
 
 @Dao
 public interface ProfileDao {

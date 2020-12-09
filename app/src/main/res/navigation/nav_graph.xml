@@ -24,6 +24,6 @@
             app:destination="@id/frontFragment" />
         <argument
             android:name="profile"
-            app:argType="id.putraprima.mygoldtracker.models.Profile" />
+            app:argType="id.putraprima.mygoldtracker.db.models.Profile" />
     </fragment>
 </navigation>

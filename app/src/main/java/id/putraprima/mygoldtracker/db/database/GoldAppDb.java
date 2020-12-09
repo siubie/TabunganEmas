@@ -1,4 +1,4 @@
-package id.putraprima.mygoldtracker.database;
+package id.putraprima.mygoldtracker.db.database;
 
 import android.content.Context;
 
@@ -11,8 +11,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.Executors;
 
-import id.putraprima.mygoldtracker.dao.ProfileDao;
-import id.putraprima.mygoldtracker.models.Profile;
+import id.putraprima.mygoldtracker.db.dao.ProfileDao;
+import id.putraprima.mygoldtracker.db.models.Profile;
 
 @Database(entities = {Profile.class},version = 1,exportSchema = false)
 public abstract class GoldAppDb extends RoomDatabase {

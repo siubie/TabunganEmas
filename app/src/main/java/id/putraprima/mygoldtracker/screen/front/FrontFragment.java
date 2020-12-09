@@ -30,7 +30,7 @@ import com.karumi.dexter.listener.single.PermissionListener;
 
 import id.putraprima.mygoldtracker.R;
 import id.putraprima.mygoldtracker.databinding.FragmentFrontBinding;
-import id.putraprima.mygoldtracker.models.Profile;
+import id.putraprima.mygoldtracker.db.models.Profile;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -50,17 +50,17 @@ public class FrontFragment extends Fragment {
                 .withListener(new PermissionListener() {
                     @Override
                     public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
-                        Toast.makeText(getContext(), "Permission Granted", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getContext(), "Permission Granted", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
-                        Toast.makeText(getContext(), "Permission Denied", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getContext(), "Permission Denied", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
-                        Toast.makeText(getContext(), "Permission Rationale", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getContext(), "Permission Rationale", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .check();

@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 
 import id.putraprima.mygoldtracker.R;
 import id.putraprima.mygoldtracker.databinding.FragmentProfileBinding;
-import id.putraprima.mygoldtracker.models.Profile;
+import id.putraprima.mygoldtracker.db.models.Profile;
 
 public class ProfileFragment extends Fragment {
 

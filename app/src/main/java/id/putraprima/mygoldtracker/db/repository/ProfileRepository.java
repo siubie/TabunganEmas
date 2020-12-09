@@ -1,15 +1,13 @@
-package id.putraprima.mygoldtracker.repository;
+package id.putraprima.mygoldtracker.db.repository;
 
 import android.app.Application;
-import android.app.AsyncNotedAppOp;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
-import androidx.loader.content.AsyncTaskLoader;
 
-import id.putraprima.mygoldtracker.dao.ProfileDao;
-import id.putraprima.mygoldtracker.database.GoldAppDb;
-import id.putraprima.mygoldtracker.models.Profile;
+import id.putraprima.mygoldtracker.db.dao.ProfileDao;
+import id.putraprima.mygoldtracker.db.database.GoldAppDb;
+import id.putraprima.mygoldtracker.db.models.Profile;
 
 public class ProfileRepository {
     private ProfileDao profileDao;
