@@ -91,6 +91,13 @@ public class FrontFragment extends Fragment {
             }
         });
 
+        binding.fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
         binding.imageProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

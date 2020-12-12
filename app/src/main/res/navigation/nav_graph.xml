@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_frontFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_frontFragment_to_tambahTabunganFragment"
+            app:destination="@id/tambahTabunganFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -25,5 +28,14 @@
         <argument
             android:name="profile"
             app:argType="id.putraprima.mygoldtracker.db.models.Profile" />
+    </fragment>
+    <fragment
+        android:id="@+id/tambahTabunganFragment"
+        android:name="id.putraprima.mygoldtracker.screen.tabunganadd.TambahTabunganFragment"
+        android:label="fragment_tambah_tabungan"
+        tools:layout="@layout/fragment_tambah_tabungan" >
+        <action
+            android:id="@+id/action_tambahTabunganFragment_to_frontFragment"
+            app:destination="@id/frontFragment" />
     </fragment>
 </navigation>
