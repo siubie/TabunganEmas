@@ -5,18 +5,24 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.Executors;
 
+import id.putraprima.mygoldtracker.db.converters.Converters;
 import id.putraprima.mygoldtracker.db.dao.ProfileDao;
+import id.putraprima.mygoldtracker.db.dao.TabunganDao;
 import id.putraprima.mygoldtracker.db.models.Profile;
+import id.putraprima.mygoldtracker.db.models.Tabungan;
 
-@Database(entities = {Profile.class},version = 1,exportSchema = false)
+@Database(entities = {Profile.class, Tabungan.class},version = 1,exportSchema = false)
+@TypeConverters({Converters.class})
 public abstract class GoldAppDb extends RoomDatabase {
     public abstract ProfileDao profileDao();
+    public abstract TabunganDao tabunganDao();
     private static GoldAppDb INSTANCE;
     private static Context ctx;
 

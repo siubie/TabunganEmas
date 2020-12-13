@@ -94,7 +94,8 @@ public class FrontFragment extends Fragment {
         binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                NavDirections action = FrontFragmentDirections.actionFrontFragmentToTambahTabunganFragment();
+                Navigation.findNavController(requireView()).navigate(action);
             }
         });
 
