@@ -23,7 +23,7 @@ public class TambahTabunganFragmentViewModel extends ViewModel {
     public TambahTabunganFragmentViewModel(Application application){
         super();
         tabunganRepository = new TabunganRepository(application);
-        listTabunganMutableLiveData = tabunganRepository.listTabunganLiveData;
+        listTabunganMutableLiveData = tabunganRepository.getListTabunganLiveData();
     }
 
     public void onBtnTabunganClicked(String hargaBeli,String berat,String tanggalBeli){
@@ -35,9 +35,14 @@ public class TambahTabunganFragmentViewModel extends ViewModel {
         }
         Tabungan tabungan = new Tabungan(Float.parseFloat(berat),Float.parseFloat(hargaBeli),date);
         tabunganRepository.insert(tabungan);
+        tabunganMutableLiveData.setValue(tabungan);
     }
 
     public LiveData<Tabungan> getTabunganLiveData(){
         return tabunganMutableLiveData;
+    }
+
+    public void resetTabunganMutableLiveData(){
+        tabunganMutableLiveData.setValue(null);
     }
 }

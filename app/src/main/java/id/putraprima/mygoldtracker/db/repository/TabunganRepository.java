@@ -14,7 +14,7 @@ import id.putraprima.mygoldtracker.db.models.Tabungan;
 public class TabunganRepository {
     private TabunganDao tabunganDao;
     private LiveData<Tabungan> tabunganLiveData;
-    public LiveData<List<Tabungan>> listTabunganLiveData;
+    private LiveData<List<Tabungan>> listTabunganLiveData;
 
     public TabunganRepository(Application application){
         GoldAppDb db = GoldAppDb.getDatabase(application);
@@ -23,6 +23,9 @@ public class TabunganRepository {
     }
 
 
+    public LiveData<List<Tabungan>> getListTabunganLiveData(){
+        return listTabunganLiveData;
+    }
     public void insert(Tabungan tabungan){
         new TabunganRepository.insertAsyncTask(tabunganDao).execute(tabungan);
     }

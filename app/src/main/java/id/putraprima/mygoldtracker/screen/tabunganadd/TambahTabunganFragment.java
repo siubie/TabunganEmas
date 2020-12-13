@@ -15,6 +15,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 
 import java.util.Calendar;
 import java.util.List;
@@ -22,6 +24,7 @@ import java.util.List;
 import id.putraprima.mygoldtracker.R;
 import id.putraprima.mygoldtracker.databinding.FragmentTambahTabunganBinding;
 import id.putraprima.mygoldtracker.db.models.Tabungan;
+import id.putraprima.mygoldtracker.screen.profile.ProfileFragmentDirections;
 
 public class TambahTabunganFragment extends Fragment {
 
@@ -75,13 +78,11 @@ public class TambahTabunganFragment extends Fragment {
         viewModel.getTabunganLiveData().observe(getViewLifecycleOwner(), new Observer<Tabungan>() {
             @Override
             public void onChanged(Tabungan tabungan) {
-                Toast.makeText(getContext(), "Tabungan :"+tabungan.getHarga(), Toast.LENGTH_SHORT).show();
-            }
-        });
-        viewModel.listTabunganMutableLiveData.observe(getViewLifecycleOwner(), new Observer<List<Tabungan>>() {
-            @Override
-            public void onChanged(List<Tabungan> tabungans) {
-                Toast.makeText(getContext(), "Total Tabungan :"+tabungans.size(), Toast.LENGTH_SHORT).show();
+                if(tabungan!=null){
+                    NavDirections action = TambahTabunganFragmentDirections.actionTambahTabunganFragmentToFrontFragment();
+                    Navigation.findNavController(requireView()).navigate(action);
+                    viewModel.resetTabunganMutableLiveData();
+                }
             }
         });
     }

@@ -1,6 +1,10 @@
 package id.putraprima.mygoldtracker.screen.harga;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,12 +15,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +23,6 @@ import id.putraprima.mygoldtracker.api.models.AppPrice;
 import id.putraprima.mygoldtracker.api.models.Envelope;
 import id.putraprima.mygoldtracker.api.models.Price;
 import id.putraprima.mygoldtracker.databinding.FragmentHargaBinding;
-import id.putraprima.mygoldtracker.screen.profile.ProfileViewModel;
 
 public class HargaFragment extends Fragment {
 
@@ -90,7 +87,6 @@ public class HargaFragment extends Fragment {
         viewModel.getPriceList().observe(getViewLifecycleOwner(), new Observer<List<AppPrice>>() {
             @Override
             public void onChanged(List<AppPrice> appPrices) {
-                Toast.makeText(getContext(), "Text", Toast.LENGTH_SHORT).show();
                 adapter.setList(appPrices);
             }
         });
