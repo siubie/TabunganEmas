@@ -17,4 +17,10 @@ public interface TabunganDao {
 
     @Query("Select * from tabungan")
     LiveData<List<Tabungan>> getAllTabungan();
+
+    @Query("Select sum(berat) as totalBerat from tabungan")
+    LiveData<Float> getTotalBerat();
+
+    @Query("Select sum(berat) as totalBerat from tabungan where berat =:beratGram")
+    LiveData<Float> getTotalBerat(float beratGram);
 }

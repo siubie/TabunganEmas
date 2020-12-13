@@ -15,6 +15,7 @@ public class TabunganRepository {
     private TabunganDao tabunganDao;
     private LiveData<Tabungan> tabunganLiveData;
     private LiveData<List<Tabungan>> listTabunganLiveData;
+    private LiveData<Float> totalBeratLiveData;
 
     public TabunganRepository(Application application){
         GoldAppDb db = GoldAppDb.getDatabase(application);
@@ -23,9 +24,15 @@ public class TabunganRepository {
     }
 
 
+    public LiveData<Float> getTotalBeratLiveData(){
+        totalBeratLiveData = tabunganDao.getTotalBerat();
+        return totalBeratLiveData;
+    }
     public LiveData<List<Tabungan>> getListTabunganLiveData(){
         return listTabunganLiveData;
     }
+
+
     public void insert(Tabungan tabungan){
         new TabunganRepository.insertAsyncTask(tabunganDao).execute(tabungan);
     }
