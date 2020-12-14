@@ -5,7 +5,6 @@ import android.widget.TextView;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
-import java.util.Currency;
 import java.util.Date;
 import java.util.Locale;
 
@@ -21,6 +20,7 @@ public class BindingAdapter {
         DecimalFormat format = (DecimalFormat) NumberFormat.getCurrencyInstance(myIndonesianLocale);
         format.setMaximumFractionDigits(0);
         format.setPositivePrefix("Rp. ");
+        format.setNegativePrefix("Rp. -");
         view.setText(format.format(harga));
     }
 

@@ -52,12 +52,6 @@ public class TabunganFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewModel.listTabunganMutableLiveData.observe(getViewLifecycleOwner(), new Observer<List<Tabungan>>() {
-            @Override
-            public void onChanged(List<Tabungan> tabungans) {
-                Toast.makeText(getContext(), "Tabungan "+ tabungans.get(0).getTanggalBeli(), Toast.LENGTH_SHORT).show();
-            }
-        });
         setupRvTabungan();
     }
 

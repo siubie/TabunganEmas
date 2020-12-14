@@ -16,6 +16,7 @@ public class TabunganRepository {
     private LiveData<Tabungan> tabunganLiveData;
     private LiveData<List<Tabungan>> listTabunganLiveData;
     private LiveData<Float> totalBeratLiveData;
+    private LiveData<Float> totalHargaBeliLiveData;
 
     public TabunganRepository(Application application){
         GoldAppDb db = GoldAppDb.getDatabase(application);
@@ -27,6 +28,10 @@ public class TabunganRepository {
     public LiveData<Float> getTotalBeratLiveData(){
         totalBeratLiveData = tabunganDao.getTotalBerat();
         return totalBeratLiveData;
+    }
+    public LiveData<Float> getTotalHargaBeliLiveData(){
+        totalHargaBeliLiveData = tabunganDao.getTotalHargaBeli();
+        return totalHargaBeliLiveData;
     }
     public LiveData<List<Tabungan>> getListTabunganLiveData(){
         return listTabunganLiveData;
