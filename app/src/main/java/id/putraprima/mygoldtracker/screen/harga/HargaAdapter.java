@@ -1,6 +1,7 @@
 package id.putraprima.mygoldtracker.screen.harga;
 
 import android.content.ClipData;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,19 +9,21 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import id.putraprima.mygoldtracker.api.models.AppPrice;
 import id.putraprima.mygoldtracker.databinding.ItemPriceBinding;
 
 public class HargaAdapter extends RecyclerView.Adapter<HargaAdapter.HargaViewHolder>{
-    List<AppPrice> list;
+    List<AppPrice> list = new ArrayList<>();
 
     public HargaAdapter() {
     }
 
     public void setList(List<AppPrice> list) {
-        this.list = list;
+        this.list.clear();
+        this.list.addAll(list);
         notifyDataSetChanged();
     }
 

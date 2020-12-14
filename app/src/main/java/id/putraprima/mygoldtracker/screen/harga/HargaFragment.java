@@ -1,6 +1,7 @@
 package id.putraprima.mygoldtracker.screen.harga;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +29,6 @@ public class HargaFragment extends Fragment {
 
     private FragmentHargaBinding binding;
     private HargaViewModel viewModel;
-    private List<AppPrice> appPriceList = new ArrayList<>();
 
     public HargaFragment() {
         // Required empty public constructor
@@ -58,6 +58,7 @@ public class HargaFragment extends Fragment {
             @Override
             public void onChanged(Envelope<Price> priceEnvelope) {
                 if(priceEnvelope!=null){
+                    List<AppPrice> appPriceList = new ArrayList<>();
                     appPriceList.add(new AppPrice(0.5f,priceEnvelope.getData().getSell_price()/2,priceEnvelope.getData().getBuy_price()/2));
                     appPriceList.add(new AppPrice(1f,priceEnvelope.getData().getSell_price(),priceEnvelope.getData().getBuy_price()));
                     appPriceList.add(new AppPrice(2f,priceEnvelope.getData().getSell_price()*2,priceEnvelope.getData().getBuy_price()*2));
@@ -87,8 +88,11 @@ public class HargaFragment extends Fragment {
         viewModel.getPriceList().observe(getViewLifecycleOwner(), new Observer<List<AppPrice>>() {
             @Override
             public void onChanged(List<AppPrice> appPrices) {
-                adapter.setList(appPrices);
+                if(appPrices!=null){
+                    adapter.setList(appPrices);
+                }
             }
+
         });
     }
 }
